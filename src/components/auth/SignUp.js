@@ -1,21 +1,25 @@
-import React, { PureComponent, Fragment, useState } from "react";
-export default function SignUp() {
+import React, { Fragment, useState } from "react";
+import { connect } from "react-redux";
+import { setAlert } from "../../action/alert";
+import PropTypes from "prop-types";
+
+export function SignUp({ setAlert }) {
   const [formData, setFormData] = useState({
     //Check Hooks
-    name: "",
+    username: "",
     email: "",
     password: "",
     password2: ""
   });
 
-  const { name, email, password, password2 } = formData;
+  const { username, email, password, password2 } = formData;
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
     if (password !== password2) {
-      console.log("Passwords do not match");
+      setAlert("Passwords do not match", "danger");
     } else {
       console.log(formData);
     }
@@ -30,8 +34,8 @@ export default function SignUp() {
             type="text"
             className="form-control"
             placeholder="Enter your name"
-            name="name"
-            value={name}
+            name="username"
+            value={username}
             onChange={e => onChange(e)}
             required
           />
@@ -80,3 +84,9 @@ export default function SignUp() {
     </Fragment>
   );
 }
+
+SignUp.propTypes = {
+  setAlert: PropTypes.func.isRequired
+};
+
+export default connect(null, { setAlert })(SignUp);
