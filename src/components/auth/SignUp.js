@@ -1,10 +1,11 @@
 import React, { Fragment, useState } from "react";
 import { connect } from "react-redux";
+import { Link, Redirect } from "react-router-dom";
 import { setAlert } from "../../action/alert";
 import { signUp } from "../../action/auth";
 import PropTypes from "prop-types";
 
-export function SignUp({ setAlert, signUp }) {
+export function SignUp({ setAlert, signUp, isAuthenticated }) {
   const [formData, setFormData] = useState({
     //Check Hooks
     username: "",
@@ -25,6 +26,12 @@ export function SignUp({ setAlert, signUp }) {
       signUp({ username, email, password });
     }
   };
+  //If isAuthenticated
+
+  if (isAuthenticated) {
+    return <Redirect to="dashboard" />;
+  }
+
   return (
     <Fragment>
       <form onSubmit={e => onSubmit(e)}>
@@ -88,7 +95,12 @@ export function SignUp({ setAlert, signUp }) {
 
 SignUp.propTypes = {
   setAlert: PropTypes.func.isRequired,
-  signUp: PropTypes.func.isRequired
+  signUp: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool
 };
 
-export default connect(null, { setAlert, signUp })(SignUp);
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { setAlert, signUp })(SignUp);

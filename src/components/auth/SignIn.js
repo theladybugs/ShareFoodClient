@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import { setAlert } from "../../action/alert";
 import { signIn } from "../../action/auth";
 import PropTypes from "prop-types";
+import { Link, Redirect } from "react-router-dom";
 
-export function SignIn({ setAlert, signIn }) {
+export function SignIn({ setAlert, signIn, isAuthenticated }) {
   const [formData, setFormData] = useState({
     //Check Hooks
     email: "",
@@ -18,6 +19,10 @@ export function SignIn({ setAlert, signIn }) {
     //setAlert("Success", "danger");
     signIn({ email, password });
   };
+  // Redirect if SignedIn
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />;
+  }
   return (
     <Fragment>
       <form onSubmit={e => onSubmit(e)}>
@@ -56,7 +61,12 @@ export function SignIn({ setAlert, signIn }) {
 }
 SignIn.propTypes = {
   setAlert: PropTypes.func.isRequired,
-  signIn: PropTypes.func.isRequired
+  signIn: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool
 };
 
-export default connect(null, { setAlert, signIn })(SignIn);
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { setAlert, signIn })(SignIn);
