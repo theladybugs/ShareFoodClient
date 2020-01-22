@@ -6,12 +6,12 @@ const SignedOutLinks = () => {
     <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
       <ul className="navbar-nav ml-auto">
         <li className="nav-item active">
-          <NavLink className="nav-link" to="#">
+          <NavLink className="nav-link" to="/signup">
             Sign Up <span className="sr-only">(current)</span>
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="#">
+          <NavLink className="nav-link" to="/signin">
             Login
           </NavLink>
         </li>

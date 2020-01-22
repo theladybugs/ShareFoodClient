@@ -7,7 +7,8 @@ import {
   USER_LOADED,
   AUTH_ERROR,
   LOGIN_SUCCESS,
-  LOGIN_FAIL
+  LOGIN_FAIL,
+  LOGOUT
 } from "./types";
 import { setAlert } from "./alert";
 
@@ -16,17 +17,17 @@ import { setAlert } from "./alert";
 export const loadUser = () => async dispatch => {
   if (localStorage.token) {
     setAuthToken(localStorage.token);
-  }
-  try {
-    dispatch({
-      type: USER_LOADED,
-      payload: localStorage.token
-    });
-  } catch (err) {
-    console.log(err);
-    dispatch({
-      type: AUTH_ERROR
-    });
+
+    try {
+      dispatch({
+        type: USER_LOADED
+      });
+    } catch (err) {
+      console.log(err);
+      dispatch({
+        type: AUTH_ERROR
+      });
+    }
   }
 };
 
@@ -46,6 +47,7 @@ export const signUp = ({ username, email, password }) => async dispatch => {
       type: REGISTER_SUCCESS,
       payload: res.data
     });
+    dispatch(loadUser());
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -79,6 +81,7 @@ export const signIn = ({ email, password }) => async dispatch => {
       type: LOGIN_SUCCESS,
       payload: res.data
     });
+    dispatch(loadUser());
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -90,4 +93,11 @@ export const signIn = ({ email, password }) => async dispatch => {
       type: LOGIN_FAIL
     });
   }
+};
+
+//Logout / clear profiles
+export const logout = () => dispatch => {
+  dispatch({
+    type: LOGOUT
+  });
 };
