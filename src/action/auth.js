@@ -88,7 +88,7 @@ export const signIn = ({ email, password }) => async dispatch => {
     if (errors) {
       errors.forEach(error => dispatch(setAlert(err.message, "danger")));
     }
-
+    console.log(err);
     dispatch({
       type: LOGIN_FAIL
     });

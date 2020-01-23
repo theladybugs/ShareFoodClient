@@ -7,14 +7,17 @@ import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
 import auth from "../../reducers/auth";
 
-const Navbar = ({ auth: { isAthenticated, loading }, logout }) => {
-  if (isAthenticated) {
+const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+  if (isAuthenticated) {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <Link to="/" className="navbar-brand">
           ShareFood
         </Link>
         <SignedInLinks />
+        <a onClick={logout} href="#!">
+          Logout <i className="fa fa-sign-out"></i>
+        </a>
       </nav>
     );
   } else {
@@ -23,6 +26,7 @@ const Navbar = ({ auth: { isAthenticated, loading }, logout }) => {
         <Link to="/" className="navbar-brand">
           ShareFood
         </Link>
+
         <SignedOutLinks />
       </nav>
     );

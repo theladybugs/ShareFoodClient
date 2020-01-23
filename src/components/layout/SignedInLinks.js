@@ -10,14 +10,10 @@ const SignedInLinks = () => {
             New project <span className="sr-only">(current)</span>
           </NavLink>
         </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/signout">
-            Logout <i className="fa fa-user"></i>
-          </NavLink>
-        </li>
+
         <li className="nav-item">
           <NavLink className="nav-link" to="#">
-            User
+            Profile
           </NavLink>
         </li>
       </ul>
