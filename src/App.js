@@ -5,6 +5,8 @@ import Navbar from "./components/layout/Navbar";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
 import Alert from "./components/layout/Alert";
+import Dashboard from "./components/dashboard/Dashboard";
+import PrivateRoute from "./components/routing/PrivateRoute";
 import { loadUser } from "./action/auth";
 import setAuthToken from "./utils/setAuthToken";
 import "../node_modules/font-awesome/css/font-awesome.min.css";
@@ -28,6 +30,7 @@ const App = () => {
         <Fragment>
           <div className="App">
             <Navbar />
+
             <div className="container">
               <div className="row">
                 <div className="col-md-6 offset-md-3">
@@ -35,6 +38,11 @@ const App = () => {
                   <Switch>
                     <Route exact path="/signin" component={SignIn} />
                     <Route exact path="/signup" component={SignUp} />
+                    <PrivateRoute
+                      exact
+                      path="/dashboard"
+                      component={Dashboard}
+                    />
                   </Switch>
                 </div>
               </div>

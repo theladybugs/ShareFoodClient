@@ -12,7 +12,7 @@ const initialState = {
   token: localStorage.getItem("token"),
   isAuthenticated: false,
   loading: true,
-  user: null
+  user: {}
 };
 
 export default function(state = initialState, action) {
@@ -29,17 +29,21 @@ export default function(state = initialState, action) {
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
       localStorage.setItem("token", payload.jwt);
+      localStorage.setItem("user", payload.user.id);
       return {
+        token: payload.jwt,
         ...state,
         ...payload,
         isAuthenticated: true,
-        loading: false
+        loading: false,
+        user: payload.user
       };
     case REGISTER_FAIL:
     case AUTH_ERROR:
     case LOGIN_FAIL:
     case LOGOUT:
       localStorage.removeItem("token");
+      localStorage.removeItem("user");
       return {
         ...state,
         token: null,

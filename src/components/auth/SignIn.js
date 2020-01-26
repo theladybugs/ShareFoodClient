@@ -5,7 +5,7 @@ import { signIn } from "../../action/auth";
 import PropTypes from "prop-types";
 import { Link, Redirect } from "react-router-dom";
 
-export function SignIn({ setAlert, signIn, isAuthenticated }) {
+export function SignIn({ setAlert, signIn, isAuthenticated, user }) {
   const [formData, setFormData] = useState({
     //Check Hooks
     email: "",
@@ -62,11 +62,13 @@ export function SignIn({ setAlert, signIn, isAuthenticated }) {
 SignIn.propTypes = {
   setAlert: PropTypes.func.isRequired,
   signIn: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool
+  isAuthenticated: PropTypes.bool,
+  user: PropTypes.object
 };
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
+  isAuthenticated: state.auth.isAuthenticated,
+  user: state.auth.user
 });
 
 export default connect(mapStateToProps, { setAlert, signIn })(SignIn);

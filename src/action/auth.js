@@ -17,7 +17,6 @@ import { setAlert } from "./alert";
 export const loadUser = () => async dispatch => {
   if (localStorage.token) {
     setAuthToken(localStorage.token);
-
     try {
       dispatch({
         type: USER_LOADED
@@ -79,7 +78,8 @@ export const signIn = ({ email, password }) => async dispatch => {
     console.log(res.data);
     dispatch({
       type: LOGIN_SUCCESS,
-      payload: res.data
+      payload: res.data,
+      user: res.data.user
     });
     dispatch(loadUser());
   } catch (err) {
