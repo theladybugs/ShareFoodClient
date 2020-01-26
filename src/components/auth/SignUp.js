@@ -4,6 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 import { setAlert } from "../../action/alert";
 import { signUp } from "../../action/auth";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 export function SignUp({ setAlert, signUp, isAuthenticated }) {
   const [formData, setFormData] = useState({
@@ -24,6 +25,18 @@ export function SignUp({ setAlert, signUp, isAuthenticated }) {
       setAlert("Passwords do not match", "danger");
     } else {
       signUp({ username, email, password });
+      const res = await axios
+        .post("http://localhost:1337/auth/send-email-confirmation", {
+          email: email
+        })
+        .then(response => {
+          // Handle success.
+          console.log("Your user received an email");
+        })
+        .catch(error => {
+          // Handle error.
+          console.log("An error occured:", error);
+        });
     }
   };
   //If isAuthenticated
