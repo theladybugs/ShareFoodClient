@@ -16,7 +16,7 @@ export function SignIn({ setAlert, signIn, isAuthenticated, user }) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   const onSubmit = async e => {
     e.preventDefault();
-    //setAlert("Success", "danger");
+
     signIn({ email, password });
   };
   // Redirect if SignedIn

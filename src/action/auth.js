@@ -85,6 +85,7 @@ export const signIn = ({ email, password }) => async dispatch => {
   } catch (err) {
     const errors = err.response.data.errors;
 
+    dispatch(setAlert("Identifiants Incorrect", "danger"));
     if (errors) {
       errors.forEach(error => dispatch(setAlert(err.message, "danger")));
     }
