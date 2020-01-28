@@ -11,7 +11,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   if (isAuthenticated) {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <Link to="/" className="navbar-brand">
+        <Link to="/dashboard" className="navbar-brand">
           ShareFood
         </Link>
         <SignedInLinks />

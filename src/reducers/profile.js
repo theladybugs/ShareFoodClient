@@ -2,7 +2,6 @@ import { GET_PROFILE, PROFILE_ERROR } from "../action/types";
 
 const initialState = {
   profile: null,
-  profiles: [],
   loading: true,
   error: {}
 };

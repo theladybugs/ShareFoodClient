@@ -5,6 +5,9 @@ import { NavLink } from "react-router-dom";
 import { getCurrentProfile } from "../../action/profile";
 import { deleteProfile } from "../../action/profile";
 const ShowProfile = ({ getCurrentProfile, auth, profile, deleteProfile }) => {
+  useEffect(() => {
+    getCurrentProfile(auth.jwt, auth.user._id);
+  }, [getCurrentProfile]);
   const [] = useState({
     //Get Profile Info
     username: profile.profile.username,
@@ -15,7 +18,7 @@ const ShowProfile = ({ getCurrentProfile, auth, profile, deleteProfile }) => {
   return (
     <div>
       <h1>This is the profile page for user {profile.profile.username}</h1>
-      <h3>Email : {profile.profile.username}</h3>
+      <h3>Email : {profile.profile.email}</h3>
       <img src={pic} alt="" />
       <NavLink className="nav-link" to="/edit_profile">
         Edit Profil

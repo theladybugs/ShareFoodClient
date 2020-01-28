@@ -6,11 +6,12 @@ import { GET_PROFILE, PROFILE_ERROR, LOGOUT } from "./types";
 //Get current profile
 const user_id = localStorage.getItem("user");
 const token = localStorage.getItem("token");
-export const getCurrentProfile = () => async dispatch => {
+export const getCurrentProfile = (jwt, userid) => async dispatch => {
   try {
-    const res = await axios.get("http://localhost:1337/users/" + user_id, {
+    console.log(token, user_id);
+    const res = await axios.get("http://localhost:1337/users/" + userid, {
       headers: {
-        Authorization: "Bearer " + [token]
+        Authorization: "Bearer " + [jwt]
       }
     });
     dispatch({

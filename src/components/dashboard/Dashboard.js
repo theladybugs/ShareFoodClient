@@ -5,9 +5,13 @@ import { getCurrentProfile } from "../../action/profile";
 
 const Dashboard = ({ getCurrentProfile, auth, profile }) => {
   useEffect(() => {
-    getCurrentProfile();
-  }, []);
-  return <div>Dashboard</div>;
+    getCurrentProfile(localStorage.token, localStorage.user);
+  }, [getCurrentProfile]);
+  return (
+    <div>
+      <h1>Welcome</h1>
+    </div>
+  );
 };
 
 Dashboard.propTypes = {
