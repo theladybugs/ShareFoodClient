@@ -16,6 +16,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import ShowProfile from "./components/dashboard/ShowProfile";
 import EditProfile from "./components/dashboard/EditProfile";
+import DeleteProfile from "./components/dashboard/DeleteProfile";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -54,6 +55,11 @@ const App = () => {
                       exact
                       path="/edit_profile"
                       component={EditProfile}
+                    />
+                    <PrivateRoute
+                      exact
+                      path="/delete_profile"
+                      component={DeleteProfile}
                     />
                   </Switch>
                 </div>

@@ -4,18 +4,23 @@ import { editProfile } from "../../action/profile";
 import { connect } from "react-redux";
 import { setAlert } from "../../action/alert";
 import axios from "axios";
+import { getCurrentProfile } from "../../action/profile";
 
-export function EditProfile({ setAlert, editProfile }) {
-  let pic = "";
+export function EditProfile({
+  setAlert,
+  editProfile,
+  getCurrentProfile,
+  auth,
+  profile
+}) {
+  let picture = "";
   const [formData, setFormData] = useState({
     //Check Hooks
-    username: "",
-    email: "",
-    password: "",
-    password2: "",
-    picture: ""
+    username: profile.profile.username,
+    email: profile.profile.email,
+    picture: profile.profile.picture
   });
-  const { username, email, password, password2, picture } = formData;
+  const { username, email } = formData;
 
   const fileSelectedHandler = e => {
     const fd = new FormData();
@@ -27,7 +32,8 @@ export function EditProfile({ setAlert, editProfile }) {
         }
       })
       .then(res => {
-        pic += res.data[0].url;
+        picture += res.data[0].url;
+        console.log(picture);
       })
       .catch(err => console.log("err response", err));
   };
@@ -37,7 +43,7 @@ export function EditProfile({ setAlert, editProfile }) {
   const onSubmit = async e => {
     e.preventDefault();
 
-    editProfile({ email, password, username, pic });
+    editProfile({ email, username, picture });
   };
 
   return (
@@ -45,13 +51,14 @@ export function EditProfile({ setAlert, editProfile }) {
       <form onSubmit={e => onSubmit(e)}>
         <h1>Edit Profile {localStorage.user}</h1>
         <div className="form-group">
-          <label>Name</label>
+          <label>Name </label>
           <input
             type="text"
             className="form-control"
             placeholder="Enter your name"
             name="username"
             value={username}
+            placeholder={profile.profile.username}
             onChange={e => onChange(e)}
             required
           />
@@ -68,30 +75,7 @@ export function EditProfile({ setAlert, editProfile }) {
             required
           />
         </div>
-        <div className="form-group">
-          <label>Password</label>
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Enter your password"
-            name="password"
-            value={password}
-            onChange={e => onChange(e)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Confirm Password</label>
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Confirm your password"
-            name="password2"
-            value={password2}
-            onChange={e => onChange(e)}
-            required
-          />
-        </div>
+
         <input
           type="file"
           name="picture"
@@ -107,11 +91,17 @@ export function EditProfile({ setAlert, editProfile }) {
 
 EditProfile.propTypes = {
   setAlert: PropTypes.func.isRequired,
-  editProfile: PropTypes.func.isRequired
+  editProfile: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired
 };
 const mapStateToProps = state => ({
   auth: state.auth,
-  email: state.profile.email
+  email: state.profile.email,
+  profile: state.profile
 });
 
-export default connect(mapStateToProps, { setAlert, editProfile })(EditProfile);
+export default connect(mapStateToProps, {
+  setAlert,
+  editProfile,
+  getCurrentProfile
+})(EditProfile);
