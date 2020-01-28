@@ -14,6 +14,8 @@ import "../node_modules/font-awesome/css/font-awesome.min.css";
 //Redux
 import { Provider } from "react-redux";
 import store from "./store";
+import ShowProfile from "./components/dashboard/ShowProfile";
+import EditProfile from "./components/dashboard/EditProfile";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -42,6 +44,16 @@ const App = () => {
                       exact
                       path="/dashboard"
                       component={Dashboard}
+                    />
+                    <PrivateRoute
+                      exact
+                      path="/profile"
+                      component={ShowProfile}
+                    />
+                    <PrivateRoute
+                      exact
+                      path="/edit_profile"
+                      component={EditProfile}
                     />
                   </Switch>
                 </div>

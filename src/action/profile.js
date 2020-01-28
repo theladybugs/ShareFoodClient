@@ -4,10 +4,9 @@ import { setAlert } from "./alert";
 import { GET_PROFILE, PROFILE_ERROR } from "./types";
 
 //Get current profile
-
+const user_id = localStorage.getItem("user");
+const token = localStorage.getItem("token");
 export const getCurrentProfile = () => async dispatch => {
-  const user_id = localStorage.getItem("user");
-  const token = localStorage.getItem("token");
   try {
     const res = await axios.get("http://localhost:1337/users/" + user_id, {
       headers: {
@@ -18,6 +17,37 @@ export const getCurrentProfile = () => async dispatch => {
       type: GET_PROFILE,
       payload: res.data
     });
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+// Edit & Update Profile
+export const editProfile = (formData, history) => async dispatch => {
+  try {
+    const config = {
+      headers: {
+        Authorization: "Bearer " + [token]
+      }
+    };
+    const res = await axios.put(
+      "http://localhost:1337/users/" + localStorage.user,
+      formData,
+      {
+        headers: {
+          Authorization: "Bearer " + [token]
+        }
+      }
+    );
+    dispatch({
+      type: GET_PROFILE,
+      payload: res.data
+    });
+    dispatch(setAlert("Profile Updated", "success"));
+    history.push("/profile");
   } catch (err) {
     dispatch({
       type: PROFILE_ERROR,

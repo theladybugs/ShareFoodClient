@@ -12,7 +12,7 @@ const SignedInLinks = () => {
         </li>
 
         <li className="nav-item">
-          <NavLink className="nav-link" to="#">
+          <NavLink className="nav-link" to="/profile">
             Profile
           </NavLink>
         </li>
