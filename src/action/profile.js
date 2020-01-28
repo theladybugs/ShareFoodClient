@@ -3,9 +3,10 @@ import { setAlert } from "./alert";
 
 import { GET_PROFILE, PROFILE_ERROR, LOGOUT } from "./types";
 
-//Get current profile
 const user_id = localStorage.getItem("user");
 const token = localStorage.getItem("token");
+//Get current profile
+
 export const getCurrentProfile = (jwt, userid) => async dispatch => {
   try {
     console.log(token, user_id);

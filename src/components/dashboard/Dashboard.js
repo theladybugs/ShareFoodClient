@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getCurrentProfile } from "../../action/profile";
+import Annonces from "../annonces/Annonces";
 
 const Dashboard = ({ getCurrentProfile, auth, profile }) => {
   useEffect(() => {
@@ -10,6 +11,7 @@ const Dashboard = ({ getCurrentProfile, auth, profile }) => {
   return (
     <div>
       <h1>Welcome</h1>
+      <Annonces />
     </div>
   );
 };
