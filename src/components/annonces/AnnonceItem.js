@@ -11,7 +11,8 @@ const AnnonceItem = ({
   <div>
     <h4>{Titre}</h4>
     <p>{Description}</p>
-    <img src={"http://localhost:1337/" + Picture} alt="" />
+    <p>Adresse {Adresse}</p>
+    {/*<img src={"http://localhost:1337/" + Picture} alt="" />*/}
   </div>
 );
 
