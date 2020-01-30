@@ -11,18 +11,35 @@ const Annonces = ({ getAnnonces, annonce: { annonces, loading } }) => {
   }, [getAnnonces]);
 
   const [state, setstate] = useState({
-    selectedText: ""
+    selectedText: "",
+    selectedAdresse: "",
+    selectedCategorie: ""
   });
-  const { selectedText } = state;
-  const onChange = e => setstate({ ...state, [e.target.name]: e.target.value });
+  const { selectedText, selectedAdresse, selectedCategorie } = state;
+  const onChange = e => {
+    console.log(e.target.value + e.target.name);
+    setstate({ ...state, [e.target.name]: e.target.value });
+  };
+  const onChangeChecked = e => {
+    console.log(e.target.value + e.target.name);
+    setstate({ ...state, selectedCategorie: e.target.value });
+  };
 
   return (
     <Fragment>
-      <SearchBox onChange={onChange} />
+      <SearchBox onChange={onChange} onChangeChecked={onChangeChecked} />
       <h1 className="large text-primary">Annonces</h1>
       {annonces
         .filter(annonce =>
           annonce.Titre.toLowerCase().includes(selectedText.toLowerCase())
+        )
+        .filter(annonce =>
+          annonce.Adresse.toLowerCase().includes(selectedAdresse.toLowerCase())
+        )
+        .filter(annonce =>
+          annonce.categorie
+            .toLowerCase()
+            .includes(selectedCategorie.toLowerCase())
         )
         .map(annonce => (
           <AnnonceItem key={annonce._id} annonce={annonce} />
