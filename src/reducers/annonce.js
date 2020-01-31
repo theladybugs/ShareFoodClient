@@ -1,4 +1,9 @@
-import { GET_ANNONCE, ANNONCE_ERROR } from "../action/types";
+import {
+  GET_ANNONCES,
+  ANNONCES_ERROR,
+  GET_ANNONCE,
+  ANNONCE_ERROR
+} from "../action/types";
 
 const initialState = {
   annonces: [],
@@ -10,10 +15,22 @@ const initialState = {
 export default function(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
-    case GET_ANNONCE:
+    case GET_ANNONCES:
       return {
         ...state,
         annonces: payload,
+        loading: false
+      };
+    case GET_ANNONCE:
+      return {
+        ...state,
+        annonce: payload,
+        loading: false
+      };
+    case ANNONCES_ERROR:
+      return {
+        ...state,
+        error: payload,
         loading: false
       };
     case ANNONCE_ERROR:
