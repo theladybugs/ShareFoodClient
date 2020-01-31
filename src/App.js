@@ -18,6 +18,7 @@ import ShowProfile from "./components/dashboard/ShowProfile";
 import EditProfile from "./components/dashboard/EditProfile";
 import DeleteProfile from "./components/dashboard/DeleteProfile";
 import AnnoncePage from "./components/annonce/AnnoncePage";
+import AddAnnonce from "./components/annonce/AddAnnonce";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -66,6 +67,11 @@ const App = () => {
                       exact
                       path="/annonces/:id"
                       component={AnnoncePage}
+                    />
+                    <PrivateRoute
+                      exact
+                      path="/ajouter_annonce"
+                      component={AddAnnonce}
                     />
                   </Switch>
                 </div>

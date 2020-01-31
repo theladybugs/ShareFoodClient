@@ -4,7 +4,8 @@ import {
   GET_ANNONCES,
   GET_ANNONCE,
   ANNONCES_ERROR,
-  ANNONCE_ERROR
+  ANNONCE_ERROR,
+  ADD_ANNONCE
 } from "./types";
 
 // Get Annonces
@@ -41,6 +42,51 @@ export const getAnnonce = id => async dispatch => {
       payload: res.data
     });
   } catch (err) {
+    dispatch({
+      type: ANNONCE_ERROR,
+      payload: err
+    });
+  }
+};
+
+// Add Annonce
+export const test = ({
+  Titre,
+  Description,
+  Adresse,
+  DateLimite,
+  DatePickup,
+  Categorie,
+  picture
+}) => async dispatch => {
+  console.log("add annonce");
+
+  try {
+    const res = await axios.post(
+      "http://localhost:1337/annonces",
+      {
+        Titre: Titre,
+        Description: Description,
+        Adresse: Adresse,
+        DateLimite: DateLimite,
+        DatePickup: DatePickup,
+        Categorie: Categorie,
+        Picture: picture
+      },
+      {
+        headers: {
+          Authorization: "Bearer " + [localStorage.token]
+        }
+      }
+    );
+    console.log(res);
+    console.log(res.data);
+    dispatch({
+      type: ADD_ANNONCE,
+      payload: res.data
+    });
+  } catch (err) {
+    console.log(err);
     dispatch({
       type: ANNONCE_ERROR,
       payload: err

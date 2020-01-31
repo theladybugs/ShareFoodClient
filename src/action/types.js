@@ -13,3 +13,4 @@ export const ANNONCES_ERROR = "ANNONCES_ERROR";
 export const GET_ANNONCES = "GET_ANNONCES";
 export const GET_ANNONCE = "GET_ANNONCE";
 export const ANNONCE_ERROR = "ANNONCE_ERROR";
+export const ADD_ANNONCE = "ADD_ANNONCE";

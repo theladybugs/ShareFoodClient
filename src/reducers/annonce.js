@@ -2,7 +2,8 @@ import {
   GET_ANNONCES,
   ANNONCES_ERROR,
   GET_ANNONCE,
-  ANNONCE_ERROR
+  ANNONCE_ERROR,
+  ADD_ANNONCE
 } from "../action/types";
 
 const initialState = {
@@ -25,6 +26,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         annonce: payload,
+        loading: false
+      };
+    case ADD_ANNONCE:
+      return {
+        ...state,
+        annonces: payload,
         loading: false
       };
     case ANNONCES_ERROR:

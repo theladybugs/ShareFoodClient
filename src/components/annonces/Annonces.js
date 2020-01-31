@@ -37,9 +37,9 @@ const Annonces = ({ getAnnonces, annonce: { annonces, loading } }) => {
           annonce.Adresse.toLowerCase().includes(selectedAdresse.toLowerCase())
         )
         .filter(annonce =>
-          annonce.categorie
-            .toLowerCase()
-            .includes(selectedCategorie.toLowerCase())
+          annonce.Categorie.toLowerCase().includes(
+            selectedCategorie.toLowerCase()
+          )
         )
         .map(annonce => (
           <AnnonceItem key={annonce._id} annonce={annonce} />
