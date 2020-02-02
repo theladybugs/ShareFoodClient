@@ -1,9 +1,14 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, setState } from "react";
 import { connect } from "react-redux";
 import { setAlert } from "../../action/alert";
 import { test } from "../../action/annonce";
 import PropTypes from "prop-types";
 import axios from "axios";
+import { browserHistory } from "../../index";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
+import "react-datepicker/dist/react-datepicker-cssmodules.css";
 
 export function AddAnnonce({ test }) {
   let picture = "";
@@ -15,7 +20,8 @@ export function AddAnnonce({ test }) {
     DateLimite: "",
     DatePickup: "",
     Categorie: "",
-    Picture: ""
+    Picture: "",
+    Statut_Annonce: "Disponible"
   });
 
   const {
@@ -25,8 +31,15 @@ export function AddAnnonce({ test }) {
     DateLimite,
     DatePickup,
     Categorie,
-    Picture
+    Picture,
+    Statut_Annonce
   } = formData;
+  const handleChange = e => {
+    console.log(e);
+    setFormData({
+      [DatePickup]: e
+    });
+  };
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -40,7 +53,8 @@ export function AddAnnonce({ test }) {
       DateLimite,
       DatePickup,
       Categorie,
-      picture
+      picture,
+      Statut_Annonce
     });
     console.log("called again");
   };
@@ -127,14 +141,33 @@ export function AddAnnonce({ test }) {
         </div>
         <div className="form-group">
           <label>Categorie</label>
+          <label htmlFor="">Fruits</label>
           <input
-            type="text"
-            className="form-control"
-            placeholder="Enter your Categorie"
             name="Categorie"
-            value={Categorie}
+            type="radio"
+            value="fruits"
             onChange={e => onChange(e)}
-            required
+          />
+          <label htmlFor="">Légumes</label>
+          <input
+            name="Categorie"
+            value="légumes"
+            type="radio"
+            onChange={e => onChange(e)}
+          />
+          <label htmlFor="">Epicerie</label>
+          <input
+            name="Categorie"
+            value="épicerie"
+            type="radio"
+            onChange={e => onChange(e)}
+          />
+          <label htmlFor="">Plats</label>
+          <input
+            name="Categorie"
+            value="plats"
+            type="radio"
+            onChange={e => onChange(e)}
           />
         </div>
         <input
