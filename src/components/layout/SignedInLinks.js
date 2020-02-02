@@ -7,7 +7,12 @@ const SignedInLinks = () => {
       <ul className="navbar-nav ml-auto">
         <li className="nav-item active">
           <NavLink className="nav-link" to="/ajouter_annonce">
-            New project <span className="sr-only">(current)</span>
+            Ajouter une annonce <span className="sr-only">(current)</span>
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/statistiques">
+            Statistiques
           </NavLink>
         </li>
 

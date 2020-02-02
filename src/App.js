@@ -8,6 +8,7 @@ import Alert from "./components/layout/Alert";
 import Dashboard from "./components/dashboard/Dashboard";
 import PrivateRoute from "./components/routing/PrivateRoute";
 import { loadUser } from "./action/auth";
+import { getCurrentProfile } from "./action/profile";
 import setAuthToken from "./utils/setAuthToken";
 import "../node_modules/font-awesome/css/font-awesome.min.css";
 
@@ -19,6 +20,7 @@ import EditProfile from "./components/dashboard/EditProfile";
 import DeleteProfile from "./components/dashboard/DeleteProfile";
 import AnnoncePage from "./components/annonce/AnnoncePage";
 import AddAnnonce from "./components/annonce/AddAnnonce";
+import Statistiques from "./components/dashboard/Statistiques";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -27,6 +29,9 @@ if (localStorage.token) {
 const App = () => {
   useEffect(() => {
     store.dispatch(loadUser());
+  }, []);
+  useEffect(() => {
+    store.dispatch(getCurrentProfile(localStorage.token, localStorage.user));
   }, []);
 
   return (
@@ -72,6 +77,11 @@ const App = () => {
                       exact
                       path="/ajouter_annonce"
                       component={AddAnnonce}
+                    />
+                    <PrivateRoute
+                      exact
+                      path="/statistiques"
+                      component={Statistiques}
                     />
                   </Switch>
                 </div>

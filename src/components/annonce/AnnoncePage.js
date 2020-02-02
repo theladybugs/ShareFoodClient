@@ -73,9 +73,14 @@ const AnnoncePage = ({
           </form>
         )}
         <img src={annonce.Picture} alt="" />
-
-        <h1>Statut Reservation</h1>
-        <h4>{annonce.Statut_Reservation}</h4>
+        {annonce.Reserving_User == localStorage.user ? (
+          <div>
+            <h1>Statut Reservation</h1>
+            <h4>{annonce.Statut_Reservation}</h4>
+          </div>
+        ) : (
+          <div></div>
+        )}
       </div>
     );
   } else {

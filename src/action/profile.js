@@ -10,9 +10,9 @@ const token = localStorage.getItem("token");
 export const getCurrentProfile = (jwt, userid) => async dispatch => {
   try {
     console.log(token, user_id);
-    const res = await axios.get("http://localhost:1337/users/" + userid, {
+    const res = await axios.get("http://localhost:1337/users/" + user_id, {
       headers: {
-        Authorization: "Bearer " + [jwt]
+        Authorization: "Bearer " + token
       }
     });
     dispatch({
