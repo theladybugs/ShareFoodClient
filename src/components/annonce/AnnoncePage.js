@@ -42,20 +42,24 @@ const AnnoncePage = ({
       <div>
         <h1>This is the page : {annonce.Titre}</h1>
         <h4>Annonce de {annonce.user.username}</h4>
-        {annonce.Statut_Annonce === "Réservé" ? (
+        {annonce.Statut_Annonce == "Réservé" ? (
           localStorage.user == annonce.user._id ? (
-            <div>
-              <form onSubmit={e => onSubmit2(e)}>
-                <button type="submit" className="btn btn-primary">
-                  Accepter la réservation
-                </button>
-              </form>
-              <form onSubmit={e => onSubmit3(e)}>
-                <button type="submit" className="btn btn-primary">
-                  Refuser la réservation
-                </button>
-              </form>
-            </div>
+            annonce.Statut_Reservation == "En Attente" ? (
+              <div>
+                <form onSubmit={e => onSubmit2(e)}>
+                  <button type="submit" className="btn btn-primary">
+                    Accepter la réservation
+                  </button>
+                </form>
+                <form onSubmit={e => onSubmit3(e)}>
+                  <button type="submit" className="btn btn-primary">
+                    Refuser la réservation
+                  </button>
+                </form>
+              </div>
+            ) : (
+              <div>Réservation Acceptée</div>
+            )
           ) : (
             <div>Annonce réservée</div>
           )
