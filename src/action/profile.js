@@ -31,11 +31,6 @@ export const getCurrentProfile = (jwt, userid) => async dispatch => {
 // Edit & Update Profile
 export const editProfile = (formData, history) => async dispatch => {
   try {
-    const config = {
-      headers: {
-        Authorization: "Bearer " + [token]
-      }
-    };
     const res = await axios.put(
       "http://localhost:1337/users/" + localStorage.user,
       formData,
@@ -61,11 +56,6 @@ export const editProfile = (formData, history) => async dispatch => {
 // Delete Profile
 export const deleteProfile = () => async dispatch => {
   try {
-    const config = {
-      headers: {
-        Authorization: "Bearer " + [token]
-      }
-    };
     const res = await axios.delete(
       "http://localhost:1337/users/" + localStorage.user,
 

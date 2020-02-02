@@ -1,9 +1,9 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getAnnonces } from "../../action/annonce";
 
-function Statistiques({ getAnnonces, annonce: { annonces, loading } }) {
+function Statistiques({ getAnnonces, annonce: { annonces } }) {
   useEffect(() => {
     getAnnonces();
   }, [getAnnonces]);

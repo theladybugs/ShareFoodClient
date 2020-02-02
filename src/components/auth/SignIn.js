@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { setAlert } from "../../action/alert";
 import { signIn } from "../../action/auth";
 import PropTypes from "prop-types";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 export function SignIn({ setAlert, signIn, isAuthenticated, user }) {
   const [formData, setFormData] = useState({

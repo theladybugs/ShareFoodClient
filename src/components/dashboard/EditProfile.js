@@ -55,7 +55,6 @@ export function EditProfile({
           <input
             type="text"
             className="form-control"
-            placeholder="Enter your name"
             name="username"
             value={username}
             placeholder={profile.profile.username}

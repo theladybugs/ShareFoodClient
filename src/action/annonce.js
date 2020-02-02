@@ -10,7 +10,6 @@ import {
   ACCEPT_RESERVATION,
   REFUSE_RESERVATION
 } from "./types";
-import { browserHistory } from "../index";
 
 // Get Annonces
 export const getAnnonces = () => async dispatch => {
