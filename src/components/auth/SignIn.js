@@ -25,37 +25,57 @@ export function SignIn({ setAlert, signIn, isAuthenticated, user }) {
   }
   return (
     <Fragment>
-      <form onSubmit={e => onSubmit(e)}>
-        <h3>SignIn Form</h3>
-        <div className="form-group">
-          <label>Email address</label>
-          <input
-            type="email"
-            className="form-control"
-            placeholder="Enter your email"
-            name="email"
-            value={email}
-            onChange={e => onChange(e)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Password</label>
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Enter your password"
-            name="password"
-            value={password}
-            onChange={e => onChange(e)}
-            required
-          />
-        </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-10 col-xl-9 mx-auto">
+            <div className="card card-signin flex-row my-5">
+              <div className="card-img-left d-none d-md-flex"></div>
+              <div className="card-body">
+                <h5 className="card-title text-center">Connexion</h5>
+                <form className="form-signin" onSubmit={e => onSubmit(e)}>
+                  <div className="form-label-group">
+                    <input
+                      type="email"
+                      className="form-control"
+                      placeholder="Enter your email"
+                      name="email"
+                      id="inputEmail"
+                      value={email}
+                      onChange={e => onChange(e)}
+                      required
+                    />
+                    <label htmlFor="inputEmail">Email</label>
+                  </div>
 
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form>
+                  <div className="form-label-group">
+                    <input
+                      type="password"
+                      className="form-control"
+                      placeholder="Enter your password"
+                      name="password"
+                      value={password}
+                      onChange={e => onChange(e)}
+                      required
+                      id="inputPassword"
+                    />
+                    <label htmlFor="inputPassword">Mot de Passe</label>
+                  </div>
+                  <hr />
+                  <button
+                    className="btn btn-lg btn-primary btn-block text-uppercase"
+                    type="submit"
+                  >
+                    Se Connecter
+                  </button>
+                  <a className="d-block text-center mt-2 small" href="/signup">
+                    S'inscrire
+                  </a>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </Fragment>
   );
 }

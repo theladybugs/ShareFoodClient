@@ -21,6 +21,8 @@ import DeleteProfile from "./components/dashboard/DeleteProfile";
 import AnnoncePage from "./components/annonce/AnnoncePage";
 import AddAnnonce from "./components/annonce/AddAnnonce";
 import Statistiques from "./components/dashboard/Statistiques";
+import Home from "./components/dashboard/Home";
+import Footer from "./components/layout/Footer";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -41,52 +43,40 @@ const App = () => {
           <div className="App">
             <Navbar />
 
-            <div className="container">
-              <div className="row">
-                <div className="col-md-6 offset-md-3">
-                  <Alert />
-                  <Switch>
-                    <Route exact path="/signin" component={SignIn} />
-                    <Route exact path="/signup" component={SignUp} />
-                    <PrivateRoute
-                      exact
-                      path="/dashboard"
-                      component={Dashboard}
-                    />
-                    <PrivateRoute
-                      exact
-                      path="/profile"
-                      component={ShowProfile}
-                    />
-                    <PrivateRoute
-                      exact
-                      path="/edit_profile"
-                      component={EditProfile}
-                    />
-                    <PrivateRoute
-                      exact
-                      path="/delete_profile"
-                      component={DeleteProfile}
-                    />
-                    <PrivateRoute
-                      exact
-                      path="/annonces/:id"
-                      component={AnnoncePage}
-                    />
-                    <PrivateRoute
-                      exact
-                      path="/ajouter_annonce"
-                      component={AddAnnonce}
-                    />
-                    <PrivateRoute
-                      exact
-                      path="/statistiques"
-                      component={Statistiques}
-                    />
-                  </Switch>
-                </div>
-              </div>
-            </div>
+            <Alert />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/signin" component={SignIn} />
+              <Route exact path="/signup" component={SignUp} />
+              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/profile" component={ShowProfile} />
+              <PrivateRoute
+                exact
+                path="/edit_profile"
+                component={EditProfile}
+              />
+              <PrivateRoute
+                exact
+                path="/delete_profile"
+                component={DeleteProfile}
+              />
+              <PrivateRoute
+                exact
+                path="/annonces/:id"
+                component={AnnoncePage}
+              />
+              <PrivateRoute
+                exact
+                path="/ajouter_annonce"
+                component={AddAnnonce}
+              />
+              <PrivateRoute
+                exact
+                path="/statistiques"
+                component={Statistiques}
+              />
+            </Switch>
+            <Footer />
           </div>
         </Fragment>
       </BrowserRouter>
