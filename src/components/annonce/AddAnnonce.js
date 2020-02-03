@@ -77,109 +77,147 @@ export function AddAnnonce({ test }) {
 
   return (
     <Fragment>
-      <form onSubmit={e => onSubmit(e)}>
-        <h3>Ajouter une annonce</h3>
-        <div className="form-group">
-          <label>Titre</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Entrez le titre"
-            name="Titre"
-            value={Titre}
-            onChange={e => onChange(e)}
-            required
-          />
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-10 col-xl-9 mx-auto">
+            <div className="card card-signin flex-row my-5">
+              <div className="card-img-left d-none d-md-flex"></div>
+              <div className="card-body">
+                <h5 className="card-title text-center">Ajouter une annonce</h5>
+                <form className="form-signin" onSubmit={e => onSubmit(e)}>
+                  <div className="form-group">
+                    <label htmlFor="Titre">Titre</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Entrez le titre"
+                      name="Titre"
+                      value={Titre}
+                      id="Titre"
+                      onChange={e => onChange(e)}
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="Description">Description</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Enter your Description"
+                      name="Description"
+                      id="Description"
+                      value={Description}
+                      onChange={e => onChange(e)}
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="Adresse">Adresse</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Enter your Address"
+                      name="Adresse"
+                      id="Adresse"
+                      value={Adresse}
+                      onChange={e => onChange(e)}
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="DateLimite">DateLimite</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Enter your DateLimite"
+                      name="DateLimite"
+                      id="DateLimite"
+                      value={DateLimite}
+                      onChange={e => onChange(e)}
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="DatePickup">DatePickup</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Enter your DatePickup"
+                      name="DatePickup"
+                      value={DatePickup}
+                      id="DatePickup"
+                      onChange={e => onChange(e)}
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Categorie</label>
+                    <br />
+                    <label className="categories" htmlFor="Fruits">
+                      {" "}
+                      <i class="fas fa-apple-alt"></i> Fruits{"  "}
+                    </label>
+                    <input
+                      name="Categorie"
+                      type="radio"
+                      value="fruits"
+                      id="Fruits"
+                      onChange={e => onChange(e)}
+                    />{" "}
+                    <br />
+                    <label className="categories" htmlFor="Légumes">
+                      <i class="fas fa-carrot"></i> Légumes{"  "}
+                    </label>
+                    <input
+                      name="Categorie"
+                      value="légumes"
+                      type="radio"
+                      id="Légumes"
+                      onChange={e => onChange(e)}
+                    />{" "}
+                    <br />
+                    <label className="categories" htmlFor="Epicerie">
+                      <i class="fas fa-cookie"></i> Epicerie{"  "}
+                    </label>
+                    <input
+                      name="Categorie"
+                      value="épicerie"
+                      type="radio"
+                      id="Epicerie"
+                      onChange={e => onChange(e)}
+                    />{" "}
+                    <br />
+                    <label className="categories" htmlFor="Plats">
+                      <i class="fas fa-pizza-slice"></i> Plats{"  "}
+                    </label>
+                    <input
+                      name="Categorie"
+                      value="plats"
+                      type="radio"
+                      id="Plats"
+                      onChange={e => onChange(e)}
+                    />
+                  </div>
+                  <label htmlFor="Image">Ajouter une image</label>
+                  <input
+                    type="file"
+                    name="Picture"
+                    onChange={e => fileSelectedHandler(e)}
+                  />
+                  <br />
+                  <br />
+                  <button
+                    type="submit"
+                    className="btn btn-primary btn-lg btn-block"
+                  >
+                    Poster
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="form-group">
-          <label>Description</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Enter your Description"
-            name="Description"
-            value={Description}
-            onChange={e => onChange(e)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Address</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Enter your Address"
-            name="Adresse"
-            value={Adresse}
-            onChange={e => onChange(e)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>DateLimite</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Enter your DateLimite"
-            name="DateLimite"
-            value={DateLimite}
-            onChange={e => onChange(e)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>DatePickup</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Enter your DatePickup"
-            name="DatePickup"
-            value={DatePickup}
-            onChange={e => onChange(e)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Categorie</label>
-          <label htmlFor="">Fruits</label>
-          <input
-            name="Categorie"
-            type="radio"
-            value="fruits"
-            onChange={e => onChange(e)}
-          />
-          <label htmlFor="">Légumes</label>
-          <input
-            name="Categorie"
-            value="légumes"
-            type="radio"
-            onChange={e => onChange(e)}
-          />
-          <label htmlFor="">Epicerie</label>
-          <input
-            name="Categorie"
-            value="épicerie"
-            type="radio"
-            onChange={e => onChange(e)}
-          />
-          <label htmlFor="">Plats</label>
-          <input
-            name="Categorie"
-            value="plats"
-            type="radio"
-            onChange={e => onChange(e)}
-          />
-        </div>
-        <input
-          type="file"
-          name="Picture"
-          onChange={e => fileSelectedHandler(e)}
-        />
-
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form>
+      </div>
     </Fragment>
   );
 }

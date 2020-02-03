@@ -19,7 +19,7 @@ function Home(props) {
         <div className="product-device product-device-2 shadow-sm d-none d-md-block"></div>
       </div>
       <div className="container">
-        <div className="row">
+        <div className="row" id="#2">
           <div className="col-lg-4">
             <svg
               className="bd-placeholder-img rounded-circle"

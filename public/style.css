@@ -1,3 +1,11 @@
+a {
+  color: black !important;
+  text-decoration: none !important;
+}
+a:hover {
+  color: black !important;
+  text-decoration: none !important;
+}
 .row {
   padding-top: 40px;
 }
@@ -343,4 +351,7 @@ body.body-signup {
 .position {
   margin-left: -65px;
   padding: 30px;
+}
+label.categories {
+  margin-right: 8px !important;
 }

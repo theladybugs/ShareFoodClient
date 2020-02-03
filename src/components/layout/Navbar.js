@@ -13,10 +13,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <Link to="/dashboard" className="navbar-brand">
           ShareFood
         </Link>
-        <SignedInLinks />
-        <a onClick={logout} href="#!">
-          Logout <i className="fa fa-sign-out"></i>
-        </a>
+        <SignedInLinks logout={logout} />
       </nav>
     );
   } else {

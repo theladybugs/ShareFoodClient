@@ -13,9 +13,15 @@ const Annonces = ({ getAnnonces, annonce: { annonces, loading } }) => {
   const [state, setstate] = useState({
     selectedText: "",
     selectedAdresse: "",
-    selectedCategorie: ""
+    selectedCategorie: "",
+    selectedStatut: ""
   });
-  const { selectedText, selectedAdresse, selectedCategorie } = state;
+  const {
+    selectedText,
+    selectedAdresse,
+    selectedCategorie,
+    selectedStatut
+  } = state;
   const onChange = e => {
     console.log(e.target.value + e.target.name);
     setstate({ ...state, [e.target.name]: e.target.value });
@@ -24,26 +30,63 @@ const Annonces = ({ getAnnonces, annonce: { annonces, loading } }) => {
     console.log(e.target.value + e.target.name);
     setstate({ ...state, selectedCategorie: e.target.value });
   };
+  const onChangeChecked2 = e => {
+    console.log(e.target.value + e.target.name);
+    setstate({ ...state, selectedStatut: e.target.value });
+  };
 
   return (
     <Fragment>
-      <SearchBox onChange={onChange} onChangeChecked={onChangeChecked} />
-      <h1 className="large text-primary">Annonces</h1>
-      {annonces
-        .filter(annonce =>
-          annonce.Titre.toLowerCase().includes(selectedText.toLowerCase())
-        )
-        .filter(annonce =>
-          annonce.Adresse.toLowerCase().includes(selectedAdresse.toLowerCase())
-        )
-        .filter(annonce =>
-          annonce.Categorie.toLowerCase().includes(
-            selectedCategorie.toLowerCase()
-          )
-        )
-        .map(annonce => (
-          <AnnonceItem key={annonce._id} annonce={annonce} />
-        ))}
+      <div className="row">
+        <div className="col-3 fixed">
+          <div className="position">
+            <h3>
+              Filtres <i className="fas fa-filter"></i>
+            </h3>
+
+            <div className="sidebar">
+              <SearchBox
+                onChange={onChange}
+                onChangeChecked={onChangeChecked}
+                onChangeChecked2={onChangeChecked2}
+              />
+            </div>
+          </div>
+        </div>
+        <div className="col-9 scrollit">
+          <h3>Produits</h3>
+          <div id="first">
+            <div className="row">
+              {annonces
+                .filter(annonce =>
+                  annonce.Titre.toLowerCase().includes(
+                    selectedText.toLowerCase()
+                  )
+                )
+                .filter(annonce =>
+                  annonce.Adresse.toLowerCase().includes(
+                    selectedAdresse.toLowerCase()
+                  )
+                )
+                .filter(annonce =>
+                  annonce.Categorie.toLowerCase().includes(
+                    selectedCategorie.toLowerCase()
+                  )
+                )
+                .filter(annonce =>
+                  annonce.Statut_Annonce.toLowerCase().includes(
+                    selectedStatut.toLowerCase()
+                  )
+                )
+                .map(annonce => (
+                  <div className="col-md-4">
+                    <AnnonceItem key={annonce._id} annonce={annonce} />
+                  </div>
+                ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </Fragment>
   );
 };

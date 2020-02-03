@@ -9,8 +9,7 @@ const Dashboard = ({ getCurrentProfile, auth, profile }) => {
     getCurrentProfile(localStorage.token, localStorage.user);
   }, [getCurrentProfile]);
   return (
-    <div>
-      <h1>Welcome</h1>
+    <div className="container">
       <Annonces />
     </div>
   );
