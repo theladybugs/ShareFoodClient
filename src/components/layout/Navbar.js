@@ -9,18 +9,28 @@ import SignedOutLinks from "./SignedOutLinks";
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   if (isAuthenticated) {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-nav shadow">
         <Link to="/dashboard" className="navbar-brand">
-          ShareFood
+          <img
+            width="75"
+            height="75"
+            className="d-inline-block align-top"
+            src="/images/logo.png"
+          />
         </Link>
         <SignedInLinks logout={logout} />
       </nav>
     );
   } else {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-nav shadow">
         <Link to="/" className="navbar-brand">
-          ShareFood
+          <img
+            width="75"
+            height="75"
+            className="d-inline-block align-top"
+            src="/images/logo.png"
+          />
         </Link>
 
         <SignedOutLinks />

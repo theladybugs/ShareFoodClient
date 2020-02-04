@@ -44,7 +44,7 @@ const Annonces = ({ getAnnonces, annonce: { annonces, loading } }) => {
               Filtres <i className="fas fa-filter"></i>
             </h3>
 
-            <div className="sidebar">
+            <div className="sidebar shadow">
               <SearchBox
                 onChange={onChange}
                 onChangeChecked={onChangeChecked}

@@ -10,14 +10,14 @@ const SignedInLinks = props => {
     <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
       <ul className="navbar-nav ml-auto">
         <li className="nav-item active">
-          <NavLink className="nav-link" to="/ajouter_annonce">
+          <NavLink className="nav-link text-light" to="/ajouter_annonce">
             Ajouter une annonce <span className="sr-only">(current)</span>
           </NavLink>
         </li>
 
-        <li className="nav-item dropdown">
+        <li className="nav-item dropdown text-light">
           <a
-            className="nav-link dropdown-toggle"
+            className="nav-link dropdown-toggle text-light"
             href="#"
             id="navbarDropdown"
             role="button"

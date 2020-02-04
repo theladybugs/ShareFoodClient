@@ -40,34 +40,34 @@ export function SignUp({ setAlert, signUp, isAuthenticated }) {
             <div className="card card-signin flex-row my-5">
               <div className="card-img-left d-none d-md-flex"></div>
               <div className="card-body">
-                <h5 className="card-title text-center">Register</h5>
+                <h5 className="card-title text-center">Rejoindre ShareFood</h5>
                 <form onSubmit={e => onSubmit(e)} className="form-signin">
                   <div className="form-label-group">
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Enter your name"
+                      placeholder="Entrez votre nom"
                       name="username"
                       value={username}
                       id="inputUserame"
                       onChange={e => onChange(e)}
                       required
                     />
-                    <label htmlFor="inputUserame">Username</label>
+                    <label htmlFor="inputUserame">Nom</label>
                   </div>
 
                   <div className="form-label-group">
                     <input
                       type="email"
                       className="form-control"
-                      placeholder="Enter your email"
+                      placeholder="Entrez votre email"
                       name="email"
                       id="inputEmail"
                       value={email}
                       onChange={e => onChange(e)}
                       required
                     />
-                    <label htmlFor="inputEmail">Email address</label>
+                    <label htmlFor="inputEmail">Adresse Email</label>
                   </div>
 
                   <hr />
@@ -83,7 +83,7 @@ export function SignUp({ setAlert, signUp, isAuthenticated }) {
                       onChange={e => onChange(e)}
                       required
                     />
-                    <label htmlFor="inputPassword">Password</label>
+                    <label htmlFor="inputPassword">Mot de Passe</label>
                   </div>
 
                   <div className="form-label-group">
@@ -98,7 +98,7 @@ export function SignUp({ setAlert, signUp, isAuthenticated }) {
                       id="inputConfirmPassword"
                     />
                     <label htmlFor="inputConfirmPassword">
-                      Confirm password
+                      Confirmez le Mot de Passe
                     </label>
                   </div>
 
@@ -106,10 +106,10 @@ export function SignUp({ setAlert, signUp, isAuthenticated }) {
                     className="btn btn-lg btn-primary btn-block text-uppercase"
                     type="submit"
                   >
-                    Register
+                    S'inscrire
                   </button>
                   <a className="d-block text-center mt-2 small" href="/signin">
-                    Sign In
+                    Se connecter
                   </a>
                 </form>
               </div>

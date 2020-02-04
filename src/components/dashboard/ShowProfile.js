@@ -29,11 +29,11 @@ const ShowProfile = ({
   });
   let pic = "http://localhost:1337/" + profile.profile.picture;
 
-  if (annonces) {
+  if (annonces && profile) {
     return (
       <div className="row">
-        <div className="col-3 fixed">
-          <div className="sidebar">
+        <div className="col-4">
+          <div className="sidebar shadow">
             <img src={pic} alt="" className="img-thumbnail" />
             <h1>Profile {profile.profile.username}</h1>
             <h3>Email : {profile.profile.email}</h3>
@@ -45,7 +45,7 @@ const ShowProfile = ({
             </NavLink>
           </div>
         </div>
-        <div className="col-9 fixed">
+        <div className="col-8 fixed shadow">
           <h1>Mes Annonces</h1>
           <div className="row">
             {annonces

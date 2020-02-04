@@ -18,7 +18,7 @@ const AnnonceItem = ({
   }
 }) => (
   <Link to={`/annonces/` + _id} params={{ getAnnonce: getAnnonce(_id) }}>
-    <div className="card mb-4 box-shadow">
+    <div className="card mb-4 box-shadow shadow">
       <img
         className="img-thumbnail"
         alt="Thumbnail [100%x225]"

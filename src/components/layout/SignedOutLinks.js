@@ -5,34 +5,34 @@ const SignedOutLinks = () => {
   return (
     <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
       <ul className="navbar-nav ml-auto">
-        <li className="nav-item active p-2 text-dark">
-          <NavLink className="p-2 text-dark" to="#2">
+        <li className="nav-item active p-2 text-light">
+          <NavLink className=" nav-link p-2 text-light" to="#2">
             A Propos
           </NavLink>
         </li>
-        <li className="nav-item p-2 text-dark">
-          <NavLink className="p-2 text-dark" to="#3">
+        <li className="nav-item p-2 text-light">
+          <NavLink className=" nav-link p-2 text-light" to="#3">
             Le Gaspillage
           </NavLink>
         </li>
-        <li className="nav-item p-2 text-dark ">
-          <NavLink className="p-2 text-dark" to="/faq">
+        <li className="nav-item p-2 text-light ">
+          <NavLink className="nav-link p-2 text-light" to="/faq">
             FAQ
           </NavLink>
         </li>
-        <li className="nav-item p-2 text-dark">
-          <NavLink className="p-2 text-dark" to="/contact">
+        <li className="nav-item p-2 text-light">
+          <NavLink className="nav-link p-2 text-light" to="/contact">
             Contact
           </NavLink>
         </li>
         <li className="nav-item ">
-          <NavLink className="btn btn-outline-primary" to="/signup">
-            Sign Up <span className="sr-only">(current)</span>
+          <NavLink className="btn btn-primary" to="/signup">
+            S'inscrire<span className="sr-only">(current)</span>
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="btn btn-outline-primary" to="/signin">
-            Login
+          <NavLink className="btn btn-primary" to="/signin">
+            Se Connecter
           </NavLink>
         </li>
       </ul>

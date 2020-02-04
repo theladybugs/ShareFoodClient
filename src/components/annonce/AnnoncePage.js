@@ -41,8 +41,7 @@ const AnnoncePage = ({
     return (
       <div className="row">
         <div className="col-3 fixed">
-          <div className="position">Profil</div>
-          <div className="sidebar">
+          <div className="sidebar shadow">
             <img
               src={"http://localhost:1337" + annonce.user.picture}
               alt="..."
@@ -63,7 +62,7 @@ const AnnoncePage = ({
           <img src={annonce.Picture} alt="" className="img-product" />
           <p>{annonce.Description}</p>
         </div>
-        <div className="col-3 fixed">
+        <div className="col-3 fixed shadow">
           <h6>Statut Annonce</h6>
           {annonce.Statut_Annonce == "Réservé" ? (
             localStorage.user == annonce.user._id ? (

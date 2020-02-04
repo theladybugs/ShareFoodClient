@@ -8,11 +8,7 @@ const Dashboard = ({ getCurrentProfile, auth, profile }) => {
   useEffect(() => {
     getCurrentProfile(localStorage.token, localStorage.user);
   }, [getCurrentProfile]);
-  return (
-    <div className="container">
-      <Annonces />
-    </div>
-  );
+  return <Annonces />;
 };
 
 Dashboard.propTypes = {

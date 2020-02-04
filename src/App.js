@@ -44,38 +44,40 @@ const App = () => {
             <Navbar />
 
             <Alert />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/signin" component={SignIn} />
-              <Route exact path="/signup" component={SignUp} />
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              <PrivateRoute exact path="/profile" component={ShowProfile} />
-              <PrivateRoute
-                exact
-                path="/edit_profile"
-                component={EditProfile}
-              />
-              <PrivateRoute
-                exact
-                path="/delete_profile"
-                component={DeleteProfile}
-              />
-              <PrivateRoute
-                exact
-                path="/annonces/:id"
-                component={AnnoncePage}
-              />
-              <PrivateRoute
-                exact
-                path="/ajouter_annonce"
-                component={AddAnnonce}
-              />
-              <PrivateRoute
-                exact
-                path="/statistiques"
-                component={Statistiques}
-              />
-            </Switch>
+            <Route exact path="/" component={Home} />
+            <div className="container">
+              <Switch>
+                <Route exact path="/signin" component={SignIn} />
+                <Route exact path="/signup" component={SignUp} />
+                <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                <PrivateRoute exact path="/profile" component={ShowProfile} />
+                <PrivateRoute
+                  exact
+                  path="/edit_profile"
+                  component={EditProfile}
+                />
+                <PrivateRoute
+                  exact
+                  path="/delete_profile"
+                  component={DeleteProfile}
+                />
+                <PrivateRoute
+                  exact
+                  path="/annonces/:id"
+                  component={AnnoncePage}
+                />
+                <PrivateRoute
+                  exact
+                  path="/ajouter_annonce"
+                  component={AddAnnonce}
+                />
+                <PrivateRoute
+                  exact
+                  path="/statistiques"
+                  component={Statistiques}
+                />
+              </Switch>
+            </div>
             <Footer />
           </div>
         </Fragment>
