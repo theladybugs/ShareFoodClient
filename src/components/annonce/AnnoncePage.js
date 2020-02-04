@@ -39,48 +39,71 @@ const AnnoncePage = ({
 
   if (annonce) {
     return (
-      <div>
-        <h1>This is the page : {annonce.Titre}</h1>
-        <h4>Annonce de {annonce.user.username}</h4>
-        {annonce.Statut_Annonce == "Réservé" ? (
-          localStorage.user == annonce.user._id ? (
-            annonce.Statut_Reservation == "En Attente" ? (
-              <div>
-                <form onSubmit={e => onSubmit2(e)}>
-                  <button type="submit" className="btn btn-primary">
-                    Accepter la réservation
-                  </button>
-                </form>
-                <form onSubmit={e => onSubmit3(e)}>
-                  <button type="submit" className="btn btn-primary">
-                    Refuser la réservation
-                  </button>
-                </form>
-              </div>
-            ) : (
-              <div>Réservation Acceptée</div>
-            )
-          ) : (
-            <div>Annonce réservée</div>
-          )
-        ) : localStorage.user == annonce.user._id ? (
-          <div>No reservation</div>
-        ) : (
-          <form onSubmit={e => onSubmit(e)}>
-            <button type="submit" className="btn btn-primary">
-              Réserver
-            </button>
-          </form>
-        )}
-        <img src={annonce.Picture} alt="" />
-        {annonce.Reserving_User == localStorage.user ? (
-          <div>
-            <h1>Statut Reservation</h1>
-            <h4>{annonce.Statut_Reservation}</h4>
+      <div className="row">
+        <div className="col-3 fixed">
+          <div className="position">Profil</div>
+          <div className="sidebar">
+            <img
+              src={"http://localhost:1337" + annonce.user.picture}
+              alt="..."
+              className="img-thumbnail"
+            />
+            <h1>{annonce.user.username}</h1>
+            <h6>Membre depuis : {annonce.user.createdAt.substring(0, 10)}</h6>
           </div>
-        ) : (
-          <div></div>
-        )}
+        </div>
+        <div className="col-6 scrollit">
+          <h1>Annonce : {annonce.Titre}</h1>
+          <h4>De {annonce.user.username}</h4>
+          <h4>Publiée le {annonce.createdAt.substring(0, 10)}</h4>
+          <h4>
+            Disponible le {annonce.DatePickup.substring(0, 10)} à{" "}
+            {annonce.DatePickup.substring(11, 16)}
+          </h4>
+          <img src={annonce.Picture} alt="" className="img-product" />
+          <p>{annonce.Description}</p>
+        </div>
+        <div className="col-3 fixed">
+          <h6>Statut Annonce</h6>
+          {annonce.Statut_Annonce == "Réservé" ? (
+            localStorage.user == annonce.user._id ? (
+              annonce.Statut_Reservation == "En Attente" ? (
+                <div>
+                  <form onSubmit={e => onSubmit2(e)}>
+                    <button type="submit" className="btn btn-primary">
+                      Accepter la réservation
+                    </button>
+                  </form>
+                  <form onSubmit={e => onSubmit3(e)}>
+                    <button type="submit" className="btn btn-primary">
+                      Refuser la réservation
+                    </button>
+                  </form>
+                </div>
+              ) : (
+                <div>Réservation Acceptée</div>
+              )
+            ) : (
+              <div>Annonce réservée</div>
+            )
+          ) : localStorage.user == annonce.user._id ? (
+            <div>No reservation</div>
+          ) : (
+            <form onSubmit={e => onSubmit(e)}>
+              <button type="submit" className="btn btn-primary">
+                Réserver
+              </button>
+            </form>
+          )}
+          {annonce.Reserving_User == localStorage.user ? (
+            <div>
+              <h6>Statut Reservation</h6>
+              <h6>{annonce.Statut_Reservation}</h6>
+            </div>
+          ) : (
+            <div></div>
+          )}
+        </div>
       </div>
     );
   } else {

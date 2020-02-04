@@ -79,7 +79,7 @@ const Annonces = ({ getAnnonces, annonce: { annonces, loading } }) => {
                   )
                 )
                 .map(annonce => (
-                  <div className="col-md-4">
+                  <div key={annonce._id} className="col-md-4">
                     <AnnonceItem key={annonce._id} annonce={annonce} />
                   </div>
                 ))}

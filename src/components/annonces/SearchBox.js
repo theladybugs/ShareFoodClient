@@ -18,7 +18,7 @@ export default function SearchBox(props) {
       <h6>Catégories</h6>
       <label htmlFor="selectedCategorie" className="categories">
         {" "}
-        <i class="fas fa-apple-alt"></i> Fruits{"  "}
+        <i className="fas fa-apple-alt"></i> Fruits{"  "}
       </label>
       <input
         name="selectedCategorie"
@@ -29,7 +29,7 @@ export default function SearchBox(props) {
       />
       <br />
       <label htmlFor="selectedCategorie" className="categories">
-        <i class="fas fa-carrot"></i> Légumes{"  "}
+        <i className="fas fa-carrot"></i> Légumes{"  "}
       </label>
       <input
         name="selectedCategorie"
@@ -40,7 +40,7 @@ export default function SearchBox(props) {
       />
       <br />
       <label htmlFor="selectedCategorie" className="categories">
-        <i class="fas fa-cookie"></i> Epicerie{"  "}
+        <i className="fas fa-cookie"></i> Epicerie{"  "}
       </label>
       <input
         name="selectedCategorie"
@@ -51,7 +51,7 @@ export default function SearchBox(props) {
       />
       <br />
       <label htmlFor="selectedCategorie" className="categories">
-        <i class="fas fa-pizza-slice"></i> Plats{"  "}
+        <i className="fas fa-pizza-slice"></i> Plats{"  "}
       </label>
       <input
         name="selectedCategorie"
@@ -62,7 +62,7 @@ export default function SearchBox(props) {
       />
       <br />
       <label className="categories" htmlFor="selectedCategorie">
-        <i class="fas fa-shopping-basket"></i> Tout{"  "}
+        <i className="fas fa-shopping-basket"></i> Tout{"  "}
       </label>
       <input
         name="selectedCategorie"
@@ -75,7 +75,7 @@ export default function SearchBox(props) {
       <br />
       <h6>Statut</h6>
       <label className="categories" htmlFor="selectedStatut">
-        <i class="fas fa-times"></i> Réservé{"  "}
+        <i className="fas fa-times"></i> Réservé{"  "}
       </label>
       <input
         name="selectedStatut"
@@ -84,7 +84,7 @@ export default function SearchBox(props) {
         onChange={e => props.onChangeChecked2(e)}
       />
       <label className="categories" htmlFor="selectedStatut">
-        <i class="fas fa-check"></i> Disponible{"  "}
+        <i className="fas fa-check"></i> Disponible{"  "}
       </label>
       <input
         name="selectedStatut"
@@ -94,7 +94,7 @@ export default function SearchBox(props) {
       />{" "}
       <br />
       <label className="categories" htmlFor="selectedStatut">
-        <i class="fas fa-shopping-basket"></i> Tout{"  "}
+        <i className="fas fa-shopping-basket"></i> Tout{"  "}
       </label>
       <input
         name="selectedStatut"

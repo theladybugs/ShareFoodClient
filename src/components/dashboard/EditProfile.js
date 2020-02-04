@@ -48,42 +48,53 @@ export function EditProfile({
 
   return (
     <Fragment>
-      <form onSubmit={e => onSubmit(e)}>
-        <h1>Edit Profile {localStorage.user}</h1>
-        <div className="form-group">
-          <label>Name </label>
-          <input
-            type="text"
-            className="form-control"
-            name="username"
-            value={username}
-            placeholder={profile.profile.username}
-            onChange={e => onChange(e)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Email address</label>
-          <input
-            type="email"
-            className="form-control"
-            placeholder="Enter your email"
-            name="email"
-            value={email}
-            onChange={e => onChange(e)}
-            required
-          />
-        </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-10 col-xl-9 mx-auto">
+            <div className="card card-signin flex-row my-5">
+              <div className="card-img-left d-none d-md-flex"></div>
+              <div className="card-body">
+                <h5 className="card-title text-center">Edit Profile</h5>
+                <form onSubmit={e => onSubmit(e)}>
+                  <div className="form-group">
+                    <label>Name </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="username"
+                      value={username}
+                      placeholder={profile.profile.username}
+                      onChange={e => onChange(e)}
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Email address</label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      placeholder="Enter your email"
+                      name="email"
+                      value={email}
+                      onChange={e => onChange(e)}
+                      required
+                    />
+                  </div>
 
-        <input
-          type="file"
-          name="picture"
-          onChange={e => fileSelectedHandler(e)}
-        />
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form>
+                  <input
+                    type="file"
+                    name="picture"
+                    onChange={e => fileSelectedHandler(e)}
+                  />
+                  <button type="submit" className="btn btn-primary">
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </Fragment>
   );
 }

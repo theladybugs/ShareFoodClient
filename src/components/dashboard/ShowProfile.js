@@ -31,41 +31,50 @@ const ShowProfile = ({
 
   if (annonces) {
     return (
-      <div>
-        <h1>This is the profile page for user {profile.profile.username}</h1>
-        <h3>Email : {profile.profile.email}</h3>
-        <img src={pic} alt="" />
-        <h1>Mes Annonces</h1>
-        <div>
-          {annonces
-            .filter(annonce =>
-              annonce.user._id
-                .toLowerCase()
-                .includes(localStorage.user.toLowerCase())
-            )
-            .map(annonce => (
-              <AnnonceItem key={annonce._id} annonce={annonce} />
-            ))}
+      <div className="row">
+        <div className="col-3 fixed">
+          <div className="sidebar">
+            <img src={pic} alt="" className="img-thumbnail" />
+            <h1>Profile {profile.profile.username}</h1>
+            <h3>Email : {profile.profile.email}</h3>
+            <NavLink className=" btn btn-info " to="/edit_profile">
+              Edit Profil
+            </NavLink>
+            <NavLink className="btn btn-danger" to="/delete_profile">
+              Delete Profil
+            </NavLink>
+          </div>
         </div>
-
-        <h1>Mes Réservations</h1>
-        <div>
-          {annonces
-            .filter(annonce =>
-              annonce.Reserving_User.toLowerCase().includes(
-                localStorage.user.toLowerCase()
+        <div className="col-9 fixed">
+          <h1>Mes Annonces</h1>
+          <div className="row">
+            {annonces
+              .filter(annonce =>
+                annonce.user._id
+                  .toLowerCase()
+                  .includes(localStorage.user.toLowerCase())
               )
-            )
-            .map(annonce => (
-              <AnnonceItem key={annonce._id} annonce={annonce} />
-            ))}
+              .map(annonce => (
+                <div key={annonce._id} className="col-md-4">
+                  <AnnonceItem key={annonce._id} annonce={annonce} />
+                </div>
+              ))}
+          </div>
+          <h1>Mes Réservations</h1>
+          <div className="row">
+            {annonces
+              .filter(annonce =>
+                annonce.Reserving_User.toLowerCase().includes(
+                  localStorage.user.toLowerCase()
+                )
+              )
+              .map(annonce => (
+                <div key={annonce._id} className="col-md-4">
+                  <AnnonceItem key={annonce._id} annonce={annonce} />
+                </div>
+              ))}
+          </div>
         </div>
-        <NavLink className="nav-link" to="/edit_profile">
-          Edit Profil
-        </NavLink>
-        <NavLink className="nav-link" to="/delete_profile">
-          Delete Profil
-        </NavLink>
       </div>
     );
   }

@@ -20,7 +20,7 @@ const AnnonceItem = ({
   <Link to={`/annonces/` + _id} params={{ getAnnonce: getAnnonce(_id) }}>
     <div className="card mb-4 box-shadow">
       <img
-        className="card-img-top"
+        className="img-thumbnail"
         alt="Thumbnail [100%x225]"
         src={"http://localhost:1337/" + Picture}
         data-holder-rendered="true"
@@ -29,13 +29,13 @@ const AnnonceItem = ({
         <h4 className="card-text">
           {" "}
           {Categorie == "légumes" ? (
-            <i class="fas fa-carrot"></i>
+            <i className="fas fa-carrot"></i>
           ) : Categorie == "plats" ? (
-            <i class="fas fa-pizza-slice"></i>
+            <i className="fas fa-pizza-slice"></i>
           ) : Categorie == "fruits" ? (
-            <i class="fas fa-apple-alt"></i>
+            <i className="fas fa-apple-alt"></i>
           ) : (
-            <i class="fas fa-cookie"></i>
+            <i className="fas fa-cookie"></i>
           )}{" "}
           {Titre}
         </h4>

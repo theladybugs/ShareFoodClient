@@ -355,3 +355,14 @@ body.body-signup {
 label.categories {
   margin-right: 8px !important;
 }
+.img-product {
+  width: 450px !important;
+  height: auto;
+}
+.img-thumbnail {
+  height: auto !important;
+  width: auto;
+}
+.btn {
+  color: white !important;
+}
