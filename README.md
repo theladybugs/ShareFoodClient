@@ -11,7 +11,7 @@ npm install
 npm run develop
 ```
 
-Ouvrir l'application FronEnd 'sharefoodapp'
+Ouvrir l'application FronEnd 'ShareFoodClient'
 
 ```bash
 npm install
