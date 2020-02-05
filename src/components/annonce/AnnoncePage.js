@@ -48,9 +48,7 @@ const AnnoncePage = ({
               className="img-thumbnail"
             />
             <h2 className="title-grey"> {annonce.user.username}</h2>
-            <h6 className="title-grey">
-              <i className="fas fa-envelope"></i> {annonce.user.email}
-            </h6>
+
             <h6>
               <i className="fas fa-calendar-alt"></i>{" "}
               {annonce.user.createdAt.substring(0, 10)}
@@ -64,6 +62,9 @@ const AnnoncePage = ({
             <i className="fas fa-calendar-alt"></i>{" "}
             {annonce.DatePickup.substring(0, 10)} à{" "}
             {annonce.DatePickup.substring(11, 16)}
+          </h4>
+          <h4 className="title-grey">
+            <i class="fas fa-map-marker-alt"></i> {annonce.Adresse}
           </h4>
           <img src={annonce.Picture} alt="" className="img-product" />
           <p>{annonce.Description}</p>

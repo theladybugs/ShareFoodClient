@@ -1,7 +1,8 @@
-import React, { Fragment, useState, setState } from "react";
+import React, { Fragment, useState, setState, useEffect } from "react";
 import { connect } from "react-redux";
-
+import PropTypes from "prop-types";
 import { test } from "../../action/annonce";
+import { getCurrentProfile } from "../../action/profile";
 
 import axios from "axios";
 
@@ -10,7 +11,11 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-datepicker/dist/react-datepicker-cssmodules.css";
 
-export function AddAnnonce({ test }) {
+export function AddAnnonce({ getCurrentProfile, test, profile, auth }) {
+  useEffect(() => {
+    getCurrentProfile(auth.jwt, auth.user._id);
+    console.log("Profile On" + auth.user_id);
+  }, [getCurrentProfile]);
   let picture = "";
   const [formData, setFormData] = useState({
     //Check Hooks
@@ -54,7 +59,8 @@ export function AddAnnonce({ test }) {
       DatePickup,
       Categorie,
       picture,
-      Statut_Annonce
+      Statut_Annonce,
+      user_id
     });
     console.log("called again");
   };
@@ -73,6 +79,8 @@ export function AddAnnonce({ test }) {
       })
       .catch(err => console.log("err response", err));
   };
+  let user_id = profile._id;
+  console.log("Test" + user_id);
   //If isAuthenticated
 
   return (
@@ -155,7 +163,7 @@ export function AddAnnonce({ test }) {
                     <br />
                     <label className="categories" htmlFor="Fruits">
                       {" "}
-                      <i class="fas fa-apple-alt"></i> Fruits{"  "}
+                      <i className="fas fa-apple-alt"></i> Fruits{"  "}
                     </label>
                     <input
                       name="Categorie"
@@ -166,7 +174,7 @@ export function AddAnnonce({ test }) {
                     />{" "}
                     <br />
                     <label className="categories" htmlFor="Légumes">
-                      <i class="fas fa-carrot"></i> Légumes{"  "}
+                      <i className="fas fa-carrot"></i> Légumes{"  "}
                     </label>
                     <input
                       name="Categorie"
@@ -177,7 +185,7 @@ export function AddAnnonce({ test }) {
                     />{" "}
                     <br />
                     <label className="categories" htmlFor="Epicerie">
-                      <i class="fas fa-cookie"></i> Epicerie{"  "}
+                      <i className="fas fa-cookie"></i> Epicerie{"  "}
                     </label>
                     <input
                       name="Categorie"
@@ -188,7 +196,7 @@ export function AddAnnonce({ test }) {
                     />{" "}
                     <br />
                     <label className="categories" htmlFor="Plats">
-                      <i class="fas fa-pizza-slice"></i> Plats{"  "}
+                      <i className="fas fa-pizza-slice"></i> Plats{"  "}
                     </label>
                     <input
                       name="Categorie"
@@ -222,8 +230,17 @@ export function AddAnnonce({ test }) {
   );
 }
 
-AddAnnonce.propTypes = {};
+AddAnnonce.propTypes = {
+  profile: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired
+};
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  profile: state.profile,
+  auth: state.auth
+});
 
-export default connect(mapStateToProps, { test })(AddAnnonce);
+export default connect(mapStateToProps, { test, getCurrentProfile })(
+  AddAnnonce
+);

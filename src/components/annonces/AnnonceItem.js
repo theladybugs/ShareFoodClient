@@ -21,10 +21,12 @@ const AnnonceItem = ({
   <Link to={`/annonces/` + _id} params={{ getAnnonce: getAnnonce(_id) }}>
     <div className="card mb-4 box-shadow shadow">
       <img
-        className="img-thumbnail"
+        className="card-img"
         alt="Thumbnail [100%x225]"
         src={"http://localhost:1337/" + Picture}
         data-holder-rendered="true"
+        width="250px"
+        height="250px"
       />
       <div className="card-body">
         <h4 className="card-text">

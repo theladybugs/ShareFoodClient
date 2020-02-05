@@ -24,9 +24,7 @@ function Statistiques({ getAnnonces, profile, annonce: { annonces } }) {
               className="img-thumbnail"
             />
             <h2 className="title-grey"> {profile.profile.username}</h2>
-            <h6 className="title-grey">
-              <i className="fas fa-envelope"></i> {profile.profile.email}
-            </h6>
+
             <h6>
               <i className="fas fa-calendar-alt"></i>{" "}
               {profile.profile.createdAt.substring(0, 10)}

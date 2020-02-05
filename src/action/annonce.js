@@ -61,9 +61,11 @@ export const test = ({
   DatePickup,
   Categorie,
   picture,
-  Statut_Annonce
+  Statut_Annonce,
+  user_id
 }) => async dispatch => {
   console.log("add annonce");
+  console.log(user_id);
 
   try {
     const res = await axios.post(
@@ -76,7 +78,10 @@ export const test = ({
         DatePickup: DatePickup,
         Categorie: Categorie,
         Picture: picture,
-        Statut_Annonce: Statut_Annonce
+        Statut_Annonce: Statut_Annonce,
+        user: {
+          _id: localStorage.user
+        }
       },
       {
         headers: {

@@ -215,6 +215,17 @@ title-grey {
   font-weight: bold;
   font-size: 12px !important;
 }
+
+.card {
+  width: 100% !important;
+  height: 380px !important;
+  overflow: auto !important;
+}
+.card-img {
+  width: 100% !important;
+  height: 15vw !important;
+  object-fit: cover !important;
+}
 .form-signin {
   width: 100%;
 }
