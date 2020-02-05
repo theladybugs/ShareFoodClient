@@ -39,24 +39,22 @@ const Annonces = ({ getAnnonces, annonce: { annonces, loading } }) => {
     <Fragment>
       <div className="row">
         <div className="col-3 fixed">
-          <div className="position">
-            <h3>
-              Filtres <i className="fas fa-filter"></i>
-            </h3>
+          <h2 className="title-grey">
+            Filtres <i className="fas fa-filter"></i>
+          </h2>
 
-            <div className="sidebar shadow">
-              <SearchBox
-                onChange={onChange}
-                onChangeChecked={onChangeChecked}
-                onChangeChecked2={onChangeChecked2}
-              />
-            </div>
+          <div className="sidebar shadow">
+            <SearchBox
+              onChange={onChange}
+              onChangeChecked={onChangeChecked}
+              onChangeChecked2={onChangeChecked2}
+            />
           </div>
         </div>
-        <div className="col-9 scrollit">
-          <h3>Produits</h3>
+        <div className="col-9 scrollit ">
+          <h2 className="title-grey">Produits</h2>
           <div id="first">
-            <div className="row">
+            <div className="row shadow">
               {annonces
                 .filter(annonce =>
                   annonce.Titre.toLowerCase().includes(

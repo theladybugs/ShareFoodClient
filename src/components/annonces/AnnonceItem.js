@@ -14,7 +14,8 @@ const AnnonceItem = ({
     Adresse,
     Picture,
     Categorie,
-    Statut_Annonce
+    Statut_Annonce,
+    createdAt
   }
 }) => (
   <Link to={`/annonces/` + _id} params={{ getAnnonce: getAnnonce(_id) }}>
@@ -39,9 +40,12 @@ const AnnonceItem = ({
           )}{" "}
           {Titre}
         </h4>
-        <p className="card-text">{Description}</p>
+        <span>
+          <i className="fas fa-calendar-alt"></i> {createdAt.substring(0, 10)}
+        </span>
+        <hr />
 
-        <span className="card-text">{Statut_Annonce}</span>
+        <span className={`card-text ` + Statut_Annonce}>{Statut_Annonce}</span>
       </div>
     </div>
   </Link>

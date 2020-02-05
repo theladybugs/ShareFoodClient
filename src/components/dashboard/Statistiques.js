@@ -23,16 +23,58 @@ function Statistiques({ getAnnonces, profile, annonce: { annonces } }) {
               alt=""
               className="img-thumbnail"
             />
-            <h1>Profile {profile.profile.username}</h1>
-            <h3>Email : {profile.profile.email}</h3>
+            <h2 className="title-grey"> {profile.profile.username}</h2>
+            <h6 className="title-grey">
+              <i className="fas fa-envelope"></i> {profile.profile.email}
+            </h6>
+            <h6>
+              <i className="fas fa-calendar-alt"></i>{" "}
+              {profile.profile.createdAt.substring(0, 10)}
+            </h6>
           </div>
         </div>
         <div className="col-8 fixed shadow">
-          <h1 className="large text-primary">Annonces</h1>
-          <p>Nombre d'annonces sur le site: {annonces.length}</p>
-
-          <p>Nombre d'annonces que vous avez posté {mesAnnonces} </p>
-          <p>Nombre d'annonces que vous avez réservé {mesReservations} </p>
+          <br />
+          <h1 className="title-grey">Vos Statistiques</h1>
+          <hr />
+          <div className="row text-center">
+            <div className="col">
+              <div className="counter">
+                <h2 className="title-grey">{mesAnnonces}</h2>
+                <h1 className="features-icons">
+                  <i className="far fa-handshake"></i>
+                </h1>
+                <h5 className="title-grey">Annonces Postée</h5>
+              </div>
+            </div>
+            <div className="col">
+              <div className="counter">
+                <h2 className="title-grey">{mesReservations}</h2>
+                <h1 className="features-icons">
+                  <i className="far fa-calendar-check"></i>
+                </h1>
+                <h5 className="title-grey">Réservations Faites</h5>
+              </div>
+            </div>
+            <div className="col">
+              <div className="counter">
+                <h2 className="title-grey">3</h2>
+                <h1 className="features-icons">
+                  <i className="fas fa-carrot"></i>
+                </h1>
+                <h5 className="title-grey"> Aliments Sauvés</h5>
+              </div>
+            </div>
+            <div className="col">
+              <div className="counter">
+                <h2 className="title-grey">28</h2>
+                <h1 className="features-icons">
+                  <i className="fas fa-euro-sign"></i>
+                </h1>
+                <h5 className="title-grey">Economisés</h5>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </Fragment>

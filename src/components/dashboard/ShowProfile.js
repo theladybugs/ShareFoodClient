@@ -35,8 +35,14 @@ const ShowProfile = ({
         <div className="col-4">
           <div className="sidebar shadow">
             <img src={pic} alt="" className="img-thumbnail" />
-            <h1>Profile {profile.profile.username}</h1>
-            <h3>Email : {profile.profile.email}</h3>
+            <h2 className="title-grey"> {profile.profile.username}</h2>
+            <h6 className="title-grey">
+              <i className="fas fa-envelope"></i> {profile.profile.email}
+            </h6>
+            <h6>
+              <i className="fas fa-calendar-alt"></i>{" "}
+              {profile.profile.createdAt.substring(0, 10)}
+            </h6>
             <NavLink className=" btn btn-info " to="/edit_profile">
               Edit Profil
             </NavLink>

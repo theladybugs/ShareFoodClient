@@ -135,6 +135,86 @@ body.body-signup {
   padding: 2rem;
 }
 
+.title-green {
+  color: #00c853 !important;
+  font-weight: bold !important;
+}
+
+.title-orange {
+  color: #f57c00 !important;
+  font-weight: bold !important;
+}
+
+title-grey {
+  color: darkslategrey !important;
+  font-weight: bold !important;
+}
+
+.label-search {
+  color: darkslategrey !important;
+  font-size: 18px;
+  font-weight: 700 !important;
+}
+
+.fa-pizza-slice {
+  color: #e53935 !important;
+}
+
+.fa-cookie {
+  color: #5d4037 !important;
+}
+.fa-carrot {
+  color: #f57c00 !important;
+}
+
+.fa-apple-alt {
+  color: #63b76c !important;
+}
+
+.fa-times {
+  color: #c62828 !important;
+}
+.fa-check {
+  color: #63b76c !important;
+}
+.fa-calendar-alt {
+  color: grey !important;
+}
+
+.Réservé {
+  background-color: #e53935 !important ;
+  color: white !important;
+  padding: 8px !important;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 12px !important;
+}
+
+.Disponible {
+  background-color: #63b76c !important ;
+  color: white !important;
+  padding: 8px !important;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 12px !important;
+}
+
+.Attente {
+  background-color: darkslategrey !important ;
+  color: white !important;
+  padding: 8px !important;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 12px !important;
+}
+.Acceptée {
+  background-color: #00c853 !important ;
+  color: white !important;
+  padding: 8px !important;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 12px !important;
+}
 .form-signin {
   width: 100%;
 }

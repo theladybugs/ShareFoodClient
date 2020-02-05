@@ -47,23 +47,29 @@ const AnnoncePage = ({
               alt="..."
               className="img-thumbnail"
             />
-            <h1>{annonce.user.username}</h1>
-            <h6>Membre depuis : {annonce.user.createdAt.substring(0, 10)}</h6>
+            <h2 className="title-grey"> {annonce.user.username}</h2>
+            <h6 className="title-grey">
+              <i className="fas fa-envelope"></i> {annonce.user.email}
+            </h6>
+            <h6>
+              <i className="fas fa-calendar-alt"></i>{" "}
+              {annonce.user.createdAt.substring(0, 10)}
+            </h6>
           </div>
         </div>
         <div className="col-6 scrollit">
-          <h1>Annonce : {annonce.Titre}</h1>
-          <h4>De {annonce.user.username}</h4>
-          <h4>Publiée le {annonce.createdAt.substring(0, 10)}</h4>
-          <h4>
-            Disponible le {annonce.DatePickup.substring(0, 10)} à{" "}
+          <h1>{annonce.Titre}</h1>
+
+          <h4 className="title-grey">
+            <i className="fas fa-calendar-alt"></i>{" "}
+            {annonce.DatePickup.substring(0, 10)} à{" "}
             {annonce.DatePickup.substring(11, 16)}
           </h4>
           <img src={annonce.Picture} alt="" className="img-product" />
           <p>{annonce.Description}</p>
         </div>
         <div className="col-3 fixed shadow">
-          <h6>Statut Annonce</h6>
+          <h3 className="title-grey">Statut Annonce</h3>
           {annonce.Statut_Annonce == "Réservé" ? (
             localStorage.user == annonce.user._id ? (
               annonce.Statut_Reservation == "En Attente" ? (
@@ -80,24 +86,40 @@ const AnnoncePage = ({
                   </form>
                 </div>
               ) : (
-                <div>Réservation Acceptée</div>
+                <div>
+                  {" "}
+                  <h6 className={`text-center ` + annonce.Statut_Reservation}>
+                    Réservation Acceptée
+                  </h6>
+                </div>
               )
             ) : (
-              <div>Annonce réservée</div>
+              <div>
+                {" "}
+                <h6 className={`text-center ` + annonce.Statut_Annonce}>
+                  Annonce réservée
+                </h6>
+              </div>
             )
           ) : localStorage.user == annonce.user._id ? (
-            <div>No reservation</div>
+            <div>
+              {" "}
+              <h6 className="text-center">Pas de réservations</h6>
+            </div>
           ) : (
             <form onSubmit={e => onSubmit(e)}>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-success">
                 Réserver
               </button>
             </form>
           )}
+          <hr />
           {annonce.Reserving_User == localStorage.user ? (
             <div>
-              <h6>Statut Reservation</h6>
-              <h6>{annonce.Statut_Reservation}</h6>
+              <h3 className="title-grey">Statut Reservation</h3>
+              <h6 className={`text-center ` + annonce.Statut_Reservation}>
+                {annonce.Statut_Reservation}
+              </h6>
             </div>
           ) : (
             <div></div>
