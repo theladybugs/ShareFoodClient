@@ -133,11 +133,11 @@ export function AddAnnonce({ getCurrentProfile, test, profile, auth }) {
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="DateLimite">DateLimite</label>
+                    <label htmlFor="DateLimite">Date Limite </label>
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Enter your DateLimite"
+                      placeholder="Entrez la date limite de l'annonce"
                       name="DateLimite"
                       id="DateLimite"
                       value={DateLimite}
@@ -146,11 +146,11 @@ export function AddAnnonce({ getCurrentProfile, test, profile, auth }) {
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="DatePickup">DatePickup</label>
+                    <label htmlFor="DatePickup">Date Pickup</label>
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Enter your DatePickup"
+                      placeholder="Entrez votre disponibilité"
                       name="DatePickup"
                       value={DatePickup}
                       id="DatePickup"

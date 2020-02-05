@@ -15,11 +15,12 @@ const AnnonceItem = ({
     Picture,
     Categorie,
     Statut_Annonce,
-    createdAt
+    createdAt,
+    DatePickup
   }
 }) => (
   <Link to={`/annonces/` + _id} params={{ getAnnonce: getAnnonce(_id) }}>
-    <div className="card mb-4 box-shadow shadow">
+    <div className="card-annonce mb-4 box-shadow shadow">
       <img
         className="card-img"
         alt="Thumbnail [100%x225]"
@@ -43,7 +44,8 @@ const AnnonceItem = ({
           {Titre}
         </h4>
         <span>
-          <i className="fas fa-calendar-alt"></i> {createdAt.substring(0, 10)}
+          <i className="fas fa-calendar-alt"></i> {DatePickup.substring(0, 10)}{" "}
+          à {DatePickup.substring(11, 16)}
         </span>
         <hr />
 

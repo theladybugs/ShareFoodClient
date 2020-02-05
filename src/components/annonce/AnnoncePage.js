@@ -67,6 +67,7 @@ const AnnoncePage = ({
             <i class="fas fa-map-marker-alt"></i> {annonce.Adresse}
           </h4>
           <img src={annonce.Picture} alt="" className="img-product" />
+          <hr />
           <p>{annonce.Description}</p>
         </div>
         <div className="col-3 fixed shadow">

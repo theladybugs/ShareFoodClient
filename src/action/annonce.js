@@ -14,11 +14,14 @@ import {
 // Get Annonces
 export const getAnnonces = () => async dispatch => {
   try {
-    const res = await axios.get("http://localhost:1337/annonces", {
-      headers: {
-        Authorization: "Bearer " + [localStorage.token]
+    const res = await axios.get(
+      "http://localhost:1337/annonces?_sort=createdAt:DESC",
+      {
+        headers: {
+          Authorization: "Bearer " + [localStorage.token]
+        }
       }
-    });
+    );
     dispatch({
       type: GET_ANNONCES,
       payload: res.data

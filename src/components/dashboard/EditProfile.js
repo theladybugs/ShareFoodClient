@@ -54,10 +54,10 @@ export function EditProfile({
             <div className="card card-signin flex-row my-5">
               <div className="card-img-left d-none d-md-flex"></div>
               <div className="card-body">
-                <h5 className="card-title text-center">Edit Profile</h5>
+                <h5 className="card-title text-center">Editer Votre Profil</h5>
                 <form onSubmit={e => onSubmit(e)}>
                   <div className="form-group">
-                    <label>Name </label>
+                    <label>Nom </label>
                     <input
                       type="text"
                       className="form-control"
@@ -69,11 +69,11 @@ export function EditProfile({
                     />
                   </div>
                   <div className="form-group">
-                    <label>Email address</label>
+                    <label>Email</label>
                     <input
                       type="email"
                       className="form-control"
-                      placeholder="Enter your email"
+                      placeholder={profile.profile.email}
                       name="email"
                       value={email}
                       onChange={e => onChange(e)}
@@ -87,7 +87,7 @@ export function EditProfile({
                     onChange={e => fileSelectedHandler(e)}
                   />
                   <button type="submit" className="btn btn-primary">
-                    Submit
+                    Enregistrer
                   </button>
                 </form>
               </div>
